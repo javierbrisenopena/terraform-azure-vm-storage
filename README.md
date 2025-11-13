@@ -17,20 +17,41 @@ It serves as a simple Infrastructure-as-Code example for learning and portfolio 
 
 - **Terraform** installed  
   https://developer.hashicorp.com/terraform/downloads  
+
 - **Azure CLI** installed  
   https://learn.microsoft.com/cli/azure  
+
 - **Provider file (`provider.tf`)** containing:
 
 ```hcl
-provider "azurerm" {
-  features {}
-}
-
 terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.0"
+      version = "4.50.0"
     }
   }
 }
+
+provider "azurerm" {
+  features {}
+
+  client_id       = "<your_client_id>"
+  client_secret   = "<your_client_secret>"
+  tenant_id       = "<your_tenant_id>"
+  subscription_id = "<your_subscription_id>"
+}
+
+
+Usage:
+
+az login
+terraform init
+terraform plan
+terraform apply
+
+To destroy:
+
+terraform destroy
+
+
