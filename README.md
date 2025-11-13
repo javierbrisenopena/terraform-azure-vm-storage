@@ -42,7 +42,7 @@ provider "azurerm" {
   subscription_id = "<your_subscription_id>"
 }
 
-
+```
 
 
 
